@@ -7,14 +7,14 @@
 <https://aimeeavant.github.io/slo_ava/AVA-v3.html>
 
 ### Cholorpleth Map of US Population Density
-<https://aimeeavant.github.io/portfolio/671_04/Lab_04_8000.png>
+(https://aimeeavant.github.io/portfolio/671_04/Lab_04_8000.png)
 
 ### U.S. Natural Gas & Petroleum Power Plants
 <https://aimeeavant.github.io/portfolio/672_07/>
 
 ### Static Regional Map
-![Philadelphia's Magic Gardens. This place was so cool!](https://i2.wp.com/winehistoryproject.org/wp-content/uploads/2020/06/geneseo-3-lr.jpg?w=1000&ssl=1)
-<https://i2.wp.com/winehistoryproject.org/wp-content/uploads/2020/06/geneseo-3-lr.jpg?w=1000&ssl=1>
+(https://i2.wp.com/winehistoryproject.org/wp-content/uploads/2020/06/geneseo-3-lr.jpg?w=1000&ssl=1)
+
 
 #### 671 Classwork
 
