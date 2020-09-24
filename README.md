@@ -1,7 +1,9 @@
 # portfolio
 
 ### Existing Wineries at American Viticultural Area Establishment
-<https://aimeeavant.github.io/slo_ava/AVA-v3.html>
+<https://aimeeavant.github.io/portfolio/671_010>
+
+[![Existing Wineries at American Viticultural Area Establishment](671_010/AVAmapScreenShot.png "Existing Wineries at American Viticultural Area Establishment")](https://aimeeavant.github.io/portfolio/671_010/)
 
 ### Boundaries of American Viticultural Areas
 ![Boundaries of American Viticultural Areas](https://aimeeavant.github.io/portfolio/671_010/AVAmap-8000.jpg)
