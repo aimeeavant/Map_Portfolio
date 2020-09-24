@@ -18,7 +18,8 @@
 
 #### 671 Classwork
 
-This is the *[Markdown Guide](https://www.markdownguide.org)*
+Lab 02 Major Waterways of California
+[Lab 02 Major Waterways of California](https://aimeeavant.github.io/portfolio/671_03/index.html "Lab 02 Major Waterways of California")
 
 
 #### 672 Classwork
