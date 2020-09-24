@@ -1,22 +1,21 @@
 # Aimee Armour-Avant
 
-### Existing Wineries at American Viticultural Area Establishment
 ![Existing Wineries at American Viticultural Area Establishment](https://aimeeavant.github.io/Map_Portfolio/672_010/AVAmapScreenShot.png)
 
-Link to [Interactive Map] (https://aimeeavant.github.io/Map_Portfolio/672_010/ "Existing Wineries at American Viticultural Area Establishment")
-
+Interactive Map: <https://aimeeavant.github.io/Map_Portfolio/672_010/>
+- - -
 ### Boundaries of American Viticultural Areas
 ![Boundaries of American Viticultural Areas](https://aimeeavant.github.io/Map_Portfolio/671_010/AVAmap-8000.jpg)
 
-
+- - -
 ### Cholorpleth Map of US Population Density
 ![Cholorpleth Map of US Population Density](https://aimeeavant.github.io/Map_Portfolio/671_04/Lab_04_8000.png)
-
+- - -
 ### U.S. Natural Gas & Petroleum Power Plants
 ![U.S. Natural Gas & Petroleum Power Plants](https://aimeeavant.github.io/Map_Portfolio/672_07/PowerPlants.png)
 
 Interactive Map: <https://aimeeavant.github.io/Map_Portfolio/672_07>
-
+- - -
 ### Regional Map
 ![Static Regional Map](https://i2.wp.com/winehistoryproject.org/wp-content/uploads/2020/06/geneseo-3-lr.jpg?w=1000&ssl=1)
 
