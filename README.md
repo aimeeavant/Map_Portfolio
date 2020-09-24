@@ -4,7 +4,8 @@
 <https://aimeeavant.github.io/slo_ava/AVA-v3.html>
 
 ### Boundaries of American Viticultural Areas
-<https://aimeeavant.github.io/slo_ava/AVA-v3.html>
+![Boundaries of American Viticultural Areas](https://aimeeavant.github.io/portfolio/671_010/AVAmap-8000.jpg)
+
 
 ### Cholorpleth Map of US Population Density
 ![Cholorpleth Map of US Population Density](https://aimeeavant.github.io/portfolio/671_04/Lab_04_8000.png)
@@ -34,4 +35,20 @@ Lab 10 : [Boundaries of American Viticultural Areas](https://aimeeavant.github.i
 
 #### 672 Classwork
 
-This is the *[Markdown Guide](https://www.markdownguide.org)*
+Lab 01 : [Major Waterways of California](https://aimeeavant.github.io/portfolio/672_01/index.html "Lab 01 : Major Waterways of California")
+
+Lab 02 : [Major Waterways of California](https://aimeeavant.github.io/portfolio/672_02/index.html "Lab 02 : Major Waterways of California")
+
+Lab 03 : [Major Waterways of California](https://aimeeavant.github.io/portfolio/672_03/index.html "Lab 03 : Major Waterways of California")
+
+Lab 04 : [Cholorpleth Map of US Population Density](https://aimeeavant.github.io/portfolio/672_04/index.html "Lab 04 : Cholorpleth Map of US Population Density")
+
+Lab 05 : [Breweries in North America and Hawaii](https://aimeeavant.github.io/portfolio/672_05/index.html "Lab 05 : Breweries in North America and Hawaii")
+
+Lab 06 : [Pacific Crest Trail Map](https://aimeeavant.github.io/portfolio/671_06/index.html "Lab 06 : Pacific Crest Trail Map")
+
+Lab 07 : [San Luis Obispo County Parks](https://aimeeavant.github.io/portfolio/672_07/index.html "Lab 07 : San Luis Obispo County Parks")
+
+Lab 09 : [Chimney Rock Pilar](https://aimeeavant.github.io/portfolio/671_09/index.html "Lab 09 : Chimney Rock Pilar")
+
+Lab 10 : [Boundaries of American Viticultural Areas](https://aimeeavant.github.io/portfolio/672_010/index.html "Lab 10 : Boundaries of American Viticultural Areas")
