@@ -53,6 +53,8 @@ Lab 06 : [Route Mapping](https://aimeeavant.github.io/portfolio/671_06/index.htm
 
 Lab 07 : [U.S. Natural Gas & Petroleum Power Plants](https://aimeeavant.github.io/portfolio/672_07/index.html "Lab 07 : U.S. Natural Gas & Petroleum Power Plants")
 
-Lab 09 : [Chimney Rock Pilar](https://aimeeavant.github.io/portfolio/671_09/index.html "Lab 09 : Chimney Rock Pilar")
+Lab 08 : [Interactive Mapping with Multiple Layers](https://aimeeavant.github.io/portfolio/671_08/index.html "Lab 08 : Interactive Mapping with Multiple Layers")
+
+Lab 09 : [US Median Rent](https://aimeeavant.github.io/portfolio/671_09/index.html "Lab 09 : US Median Rent")
 
 Lab 10 : [Boundaries of American Viticultural Areas](https://aimeeavant.github.io/portfolio/672_010/index.html "Lab 10 : Boundaries of American Viticultural Areas")
