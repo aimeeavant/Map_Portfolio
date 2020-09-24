@@ -1,0 +1,183 @@
+body {
+    font-family: lato;
+}
+h1, h6 {
+    line-height: 1.2;
+    font-weight: 500;
+    color: #212529;
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+h1 {
+    font-size: 2rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+/* sidebar */
+p.intro {
+    font-size: 10px;
+    padding-top: 10px;
+    padding-left: 3px;
+} 
+.label {
+    font-size: 10px;
+    padding-top: 0px;
+    padding-left: 3px;
+}
+h2+p {
+margin-top: 0px;
+}
+h2+ul {
+margin-top: 0px;
+}
+p+h2 {
+margin-top: 1.3em;
+}
+a {
+color: #395D73;
+font-weight: bold;
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+color: #142129;
+}
+ul {
+padding-left: 20px;
+}
+li {
+margin: 10px 0;
+}
+.highlight {
+color: #f05716; 
+font-weight: bold;
+}
+.img-fill {
+    width: 100%;
+    height: auto;
+}
+figure {
+margin: 0;
+}
+figcaption {
+font-size: x-small;
+text-align: center;
+}
+
+
+h1.popup {
+    line-height: 1;
+    margin-bottom: 0.1em;
+}
+p.popup {
+    line-height: 1.2em;
+    margin: 0;
+    padding: 0;
+}
+img.popup {
+    margin-top: 0.5em;
+    padding: 0;
+}
+.leaflet-popup-content-wrapper {
+    background: #faf8ed;
+}
+  
+.leaflet-popup-content {
+  width: 200px;
+}
+
+/* - - - - - - Sidebar  - - - - - - - - -*/
+/* - - - - - - Buttons  - - - - - - - - -*/
+.btn {
+    font-size: .7rem;
+    font-weight: 400;
+    text-align: center;
+    display: block;
+    width: 100%;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    margin: 5px 0;
+}
+button#btnEV:hover, button#btnPR:hover,button#btnYM:hover, button#btnAGV:hover  {
+    background-color: rgba(81,10,31,1);
+    border-color: rgba(81,10,31,1);
+    color:white
+}
+button#btnEV{
+    background-color: DarkCyan;
+    border-color: DarkCyan;
+}
+div.edna h3 {
+    color:  DarkCyan;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    }
+button#btnPR{
+    background-color: DarkKhaki;
+    border-color: DarkKhaki;
+} 
+div.paso h3 {
+    color:  DarkKhaki;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+button#btnYM{
+    background-color: DarkOrange;
+    border-color: DarkOrange;
+} 
+div.york h3 {
+    color:  DarkOrange;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    }
+button#btnAGV{
+    background-color: OliveDrab;
+    border-color:OliveDrab;
+} 
+div.arroyo h3 {
+    color:  OliveDrab;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    }
+img.legend {
+    width: 32px;
+    padding: 0 5px;
+    float: left;
+}
+
+
+
+/* - - - - - - Scroll bar  - - - - - - - - -*/
+html {
+    --scrollbarBG: rgba(241,238,223,1);
+    --thumbBG: rgba(81,10,31,1);
+  }
+  body::-webkit-scrollbar {
+    width: 11px;
+  }
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  }
+  body::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG) ;
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+  }
+  
+  

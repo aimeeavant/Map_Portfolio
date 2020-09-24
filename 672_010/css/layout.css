@@ -1,0 +1,90 @@
+body {
+    margin: 15px;
+}
+
+/* Clear floats after columns */
+.row::after {
+content: "";
+display: block;
+clear: both;
+}
+#sidebar {
+    background-color: white;
+    float: left;
+    width: 15%;
+    margin-right: 15px;
+}
+#map {
+    height:80vh;
+    border: 2px solid #d3d3d3;
+
+}
+
+#about-map {
+    margin: 15px 0;
+    padding: 0 15px;
+    background-color: #F4F0E5;
+}
+
+
+/* Use float property to make two-column layout */
+.first-column {
+    float: left;
+    width: 49%;
+    padding-right: 2%;  
+    }
+  .second-column {
+    float: left;
+    width: 49%;
+    }
+
+  /* Display col 100% wide until display is wider than 900px */
+  @media screen and (max-width: 900px) {
+  #sidebar,
+  .first-column,
+  .second-column {
+    width: 100%;
+    }
+  }
+
+
+.legend {
+    background-color: rgb(255, 255, 255);
+    width: 14em;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.legend img {
+    box-shadow: 0 0 15px rgba(0,0,0,0);
+}
+img.legend {
+    box-shadow: 0 0 15px rgba(0,0,0,0);
+}
+#infoPanel {
+    background-color: rgb(255, 255, 255);
+    width: 14em;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 1px;
+    height: 40vh;
+    overflow: scroll;
+}
+#infoPanel p {
+    font-size: 10px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+#infoPanel p.link  {
+    text-align: center;
+}
+.leaflet-container .edna  a {
+    color: DarkCyan;
+}
+.leaflet-container .paso  a {
+    color: darkkhaki;
+}
+.leaflet-container .york  a {
+    color: DarkOrange;
+}
+.leaflet-container .arroyo  a {
+    color: OliveDrab;
+}
