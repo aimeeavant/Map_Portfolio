@@ -49,12 +49,12 @@ Lab 04b : [Webcam Stations with Custom Markers](https://aimeeavant.github.io/por
 
 Lab 05 : [Places of Interest in New Orleans](https://aimeeavant.github.io/portfolio/672_05/index.html "Lab 05 : Places of Interest in New Orleans")
 
-Lab 06 : [Route Mapping](https://aimeeavant.github.io/portfolio/671_06/index.html "Lab 06 : Route Mapping")
+Lab 06 : [Route Mapping](https://aimeeavant.github.io/portfolio/672_06/index.html "Lab 06 : Route Mapping")
 
 Lab 07 : [U.S. Natural Gas & Petroleum Power Plants](https://aimeeavant.github.io/portfolio/672_07/index.html "Lab 07 : U.S. Natural Gas & Petroleum Power Plants")
 
 Lab 08 : [Interactive Mapping with Multiple Layers](https://aimeeavant.github.io/portfolio/672_08/index.html "Lab 08 : Interactive Mapping with Multiple Layers")
 
-Lab 09 : [US Median Rent](https://aimeeavant.github.io/portfolio/671_09/index.html "Lab 09 : US Median Rent")
+Lab 09 : [US Median Rent](https://aimeeavant.github.io/portfolio/672_09/index.html "Lab 09 : US Median Rent")
 
 Lab 10 : [Boundaries of American Viticultural Areas](https://aimeeavant.github.io/portfolio/672_010/index.html "Lab 10 : Boundaries of American Viticultural Areas")
