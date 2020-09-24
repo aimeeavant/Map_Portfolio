@@ -12,6 +12,9 @@
 ### U.S. Natural Gas & Petroleum Power Plants
 <https://aimeeavant.github.io/portfolio/672_07/>
 
+### Static Regional Map
+![Philadelphia's Magic Gardens. This place was so cool!](https://i2.wp.com/winehistoryproject.org/wp-content/uploads/2020/06/geneseo-3-lr.jpg?w=1000&ssl=1)
+<https://i2.wp.com/winehistoryproject.org/wp-content/uploads/2020/06/geneseo-3-lr.jpg?w=1000&ssl=1>
 
 #### 671 Classwork
 
