@@ -2,7 +2,7 @@
 # Map Portfolio
 
 ### Existing Wineries at American Viticultural Area Establishment
-<https://aimeeavant.github.io/portfolio/672_010/AVAmapScreenShot.png>
+![Existing Wineries at American Viticultural Area Establishment](https://aimeeavant.github.io/portfolio/672_010/AVAmapScreenShot.png)
 
 Interactive Map: (https://aimeeavant.github.io/portfolio/672_010/ "Existing Wineries at American Viticultural Area Establishment")
 
