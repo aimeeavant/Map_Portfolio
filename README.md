@@ -57,4 +57,4 @@ Lab 08 : [Interactive Mapping with Multiple Layers](https://aimeeavant.github.io
 
 Lab 09 : [US Median Rent](https://aimeeavant.github.io/portfolio/672_09/index.html "Lab 09 : US Median Rent")
 
-Lab 10 : [Boundaries of American Viticultural Areas](https://aimeeavant.github.io/portfolio/672_010/index.html "Lab 10 : Boundaries of American Viticultural Areas")
+Lab 10 : [Existing Wineries at American Viticultural Area Establishment](https://aimeeavant.github.io/portfolio/672_010/index.html "Lab 10 : Existing Wineries at American Viticultural Area Establishment")
