@@ -1,7 +1,11 @@
 # portfolio
 
 ### Existing Wineries at American Viticultural Area Establishment
-<https://aimeeavant.github.io/portfolio/672_010>
+
+<https://aimeeavant.github.io/portfolio/672_010/AVAmapScreenShot.png>
+Interactive Map: [![Existing Wineries at American Viticultural Area Establishment](/672_010/AVAmapScreenShot.png)]
+(https://aimeeavant.github.io/portfolio/672_010/ "Existing Wineries at American Viticultural Area Establishment")
+
 
 [![Existing Wineries at American Viticultural Area Establishment](672_010/AVAmapScreenShot.png "Existing Wineries at American Viticultural Area Establishment")(https://aimeeavant.github.io/portfolio/672_010/)
 
@@ -14,6 +18,7 @@
 
 ### U.S. Natural Gas & Petroleum Power Plants
 ![U.S. Natural Gas & Petroleum Power Plants](https://aimeeavant.github.io/portfolio/672_07/PowerPlants.png)
+<https://aimeeavant.github.io/portfolio/672_07>
 
 ### Regional Map
 ![Static Regional Map](https://i2.wp.com/winehistoryproject.org/wp-content/uploads/2020/06/geneseo-3-lr.jpg?w=1000&ssl=1)
