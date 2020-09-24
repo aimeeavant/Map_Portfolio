@@ -30,7 +30,7 @@ Lab 07 : [San Luis Obispo County Parks](https://aimeeavant.github.io/portfolio/6
 
 Lab 09 : [Chimney Rock Pilar](https://aimeeavant.github.io/portfolio/671_09/index.html "Lab 09 : Chimney Rock Pilar")
 
-Lab 10 : [Major Waterways of California](https://aimeeavant.github.io/portfolio/671_010/index.html "Lab 10 : Major Waterways of California")
+Lab 10 : [Boundaries of American Viticultural Areas](https://aimeeavant.github.io/portfolio/671_010/index.html "Lab 10 : Boundaries of American Viticultural Areas")
 
 #### 672 Classwork
 
