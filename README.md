@@ -28,9 +28,10 @@ Lab 06 : [Pacific Crest Trail Map](https://aimeeavant.github.io/portfolio/671_06
 
 Lab 07 : [San Luis Obispo County Parks](https://aimeeavant.github.io/portfolio/671_07/index.html "Lab 07 : San Luis Obispo County Parks")
 
-Lab 09 : [Major Waterways of California](https://aimeeavant.github.io/portfolio/671_09/index.html "Lab 09 : Major Waterways of California")
+Lab 09 : [Chimney Rock Pilar](https://aimeeavant.github.io/portfolio/671_09/index.html "Lab 09 : Chimney Rock Pilar")
 
 Lab 10 : [Major Waterways of California](https://aimeeavant.github.io/portfolio/671_010/index.html "Lab 10 : Major Waterways of California")
+
 #### 672 Classwork
 
 This is the *[Markdown Guide](https://www.markdownguide.org)*
