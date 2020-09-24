@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=utf-8 />
+  <title>Craggy Cartographers Commemorative Trail Map - Aimee Armour-Avant</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:wght@700&display=swap" rel="stylesheet"> 
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #1f78b4;
+      font-family: 'Old Standard TT', serif;
+      font-weight: 400;
+      color: #311B0E;
+    }
+
+    section {
+      width: 80%;
+      margin: 10px auto;
+    }
+
+    h1 {
+      font-weight: 300;
+      font-size: 2.5em;
+      /* The em unit. 2.5x the current size */
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-weight: 700;
+      color: #1f78b4;
+      font-size: 1.25em;
+      letter-spacing: .04em;
+    }
+
+    p {
+      font-size: 1em;
+      line-height: 1.5em;
+    }
+
+    a {
+      color: #80bee7;
+      text-decoration: none;
+    }
+.blue {
+      color: #80bee7;
+}
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 10px 0
+    }
+
+    #map {
+      width: 100%;
+      margin: 0px auto;
+
+    }
+
+    .max-image-width {
+      width: 100%;
+    }
+
+
+    .linkbox {
+      margin: 3px 0 20px 0;
+      display: block;
+      font-weight: 300;
+    }
+
+    hr {
+      border: 0px;
+      border-bottom: 1px solid #3d3d3d;
+      padding-top: 20px;
+    }
+
+    /* Use float property to make two-column layout. */
+
+    .first-column {
+      float: left;
+      width: 48%;
+      padding-right: 20px;
+    }
+
+    .column {
+      float: left;
+      width: 48%;
+    }
+
+    /* Clear floats after the columns */
+
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* When browser is 800px wide or less */
+
+    @media screen and (max-width: 800px) {
+      .first-column,
+      .column {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <h1>Craggy Cartographers Commemorative Trail Map</h1>
+    <h2 class="blue">Authored by: Aimee Armour-Avant</h2>
+    </section>
+  <!-- Add map to top of page and make it stretch to fill browser window. -->
+  <img class="max-image-width" src="Mod06-LabB-MAP-v3-lr.jpg">
+
+  <!-- Create a two column layout for map information. -->
+  <section>
+ 
+    <a href='../my-work/Mod06-LabB-MAP-v3.jpg' class="linkbox">Link to Large Version</a>
+
+    <div class="row">
+      
+      <!-- First column, the left half -->
+      <div class="first-column">
+        <p>This commemorative map was created for Craggy Cartographers, a hiking club for old mappers using a classic map from <a href="https://www.raiszmaps.com/about-erwin-j-raisz/learn-more-about-dr-raisz/">Erwin Raisz</a>. “Erwin Josephus Raisz (1893-1968), widely considered one of the last and best exponents of the pen-and-ink school, had both feet firmly planted in the pre-digital era. In many ways the techniques he practiced have been superseded. Leroy sets, bottles of India ink, and protractors now gather dust in the file cabinets of mapmakers who learned their craft in the 1950s and 1960s. But the essence of his method, his teaching, and his example continues to constitute a rich legacy for cartographers working in any medium.” [Source: <a href="http://web.archive.org/web/20030630222812/http://mercatorsworld.com/article.php3?i=66">Plainly Visible Patterns: The Cartography of Erwin Josephus Raisz in Mercator’s World</a>].  
+        <p>The map shows the Pacific Crest Trail (PCT) with data acquired from the <a href="https://www.fs.usda.gov/detail/pct/home/?cid=stelprdb5322473">USDA Forest Service.</a> The PCT was designated as a National Scenic Trail in 1968. It is approximately 2,650 miles long.</p>
+        <img class="max-image-width" src="woodemblem1.jpg">
+        <img class="max-image-width" src="BridgeOfTheGods2.jpg">
+        <p class="linkbox">The Bridge of the Gods from Cascade Locks, Oregon.</p>
+
+      
+      </div>
+      
+      <!-- Second column, the right half -->
+      <div class="column">
+        <!-- Challenge map -->
+        <img class="max-image-width" src="300px-Devils_Postpile_from_base-1200px.jpg">
+        <p class="linkbox">Devil's Postpile in California.</p>
+
+        <!-- Challenge photograph -->
+        <img class="max-image-width" src="500px-Ritter_Range_Pacific_Crest_Trail.jpg">
+        <p class="linkbox">Ritter Ridge in California.</p>
+
+      </div>
+    </div>
+
+    <h3>Map details</h3>
+    <p>Map data acquired from USDA Forest Service, www.raiszmaps.com, and Natural Earth. Software used: QGIS3.12 on MacOS 10.14. Projection: North American Albers Equal  Area.</p>
+
+    <p>
+      University of Kentucky New Maps Plus, Spring 2020.
+    </p>
+    <hr>
+    <ul>
+      <li>Visit my Github account <a href='https://github.com/aimeeavant'>@aimeeavant</a> </li>
+      <li><a href="https://newmapsplus.github.io">New Maps Plus</a></li>
+    </ul>
+  </section>
+
+</body>
+</html>

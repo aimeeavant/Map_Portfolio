@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset=utf-8 />
+	<title>Lab 07 — US Power Plants</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<link rel='icon' href='https://newmapsplus.github.io/favicon.ico' type='image/x-icon' />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,900i" rel="stylesheet">
+
+	<style>
+		/* 
+			UKy Colors: 
+            #c7c9c8 light gray 
+            #63666a dark gray
+            #15397f dark blue
+            #009bda light blue
+            #0033a0 official blue
+        */
+		body {
+			margin: 0;
+			padding: 0;
+			background: #262626;
+			font-family: 'Lato', sans-serif;
+			font-weight: 300;
+			color: #63666a;
+			font-size: 100%;
+			/* 16px is default browser size */
+
+		}
+
+		footer {
+			background: #ffffff;
+		}
+
+		header,
+		section,
+		footer {
+			width: 80%;
+			margin: 10px auto;
+		}
+
+		h1 {
+			font-weight: 900;
+			color: LightSeaGreen;
+			font-size: 2.2em;
+			font-style: italic;
+			/* The em unit. 3x the current size */
+			letter-spacing: .02em;
+			margin: 5px 0;
+			/* text-transform: uppercase; */
+		}
+
+		h2 {
+			font-weight: 300;
+			color: PeachPuff;
+			font-size: 2.2em;
+			letter-spacing: .06em;
+			font-style: italic;
+			margin: 5px 0;
+		}
+
+		h3 {
+			font-weight: 300;
+			color: PeachPuff;
+			font-size: 1.5em;
+			margin-bottom: 5px;
+		}
+
+		p {
+			font-size: 1.1em;
+			line-height: 1.8em;
+			margin-bottom: 5px;
+		}
+
+		a {
+			color: LightSeaGreen;
+			font-weight: 400;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		ul {
+			padding: 0px 20px 4px 20px;
+			font-size: 1.1em;
+			line-height: 1.2em;
+			color: #63666a;
+		}
+
+		li {
+			margin: 10px 0
+		}
+
+		hr {
+			margin: 20px 0;
+			border: 0;
+			height: 1px;
+			background: LightSeaGreen;
+
+		}
+
+		.linkbox {
+			margin: 3px 0 20px 0;
+			display: block;
+			font-size: 0.6em;
+			font-weight: 300;
+			line-height: 1.3em;
+		}
+
+		.max-image-width {
+			width: 100%;
+		}
+
+		#map {
+			width: 100%;
+			height: 450px;
+			margin: 20px auto;
+
+		}
+
+		.gas {
+			color: PeachPuff;
+		}
+
+		.petrol {
+			color: LightSeaGreen;
+		}
+
+		#map h2 {
+			font-weight: 300;
+			font-size: 2.2em;
+			letter-spacing: .06em;
+			font-style: italic;
+			margin: 1px 0;
+			line-height: 1.1;
+		}
+
+		/* Use float property to make two-column layout */
+		.first-column {
+			float: left;
+			width: 49%;
+			padding-right: 2%;
+		}
+
+		.column {
+			float: left;
+			width: 49%;
+		}
+
+		/* Clear floats after the columns */
+		.row::after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+
+		/* When browser is 900px wide or less */
+		@media screen and (max-width: 900px) {
+
+			.first-column,
+			.second-column {
+				width: 100%;
+			}
+		}
+
+		#legend p {
+			float: right;
+		}
+		#legend img {
+			width: 25px;
+			padding-right: .5em;
+		}
+		#legend span {
+			padding-right: 50px;
+		}
+		#legend .legend-ng {
+			color: peachpuff;
+		}
+		#legend .legend-p {
+			color: lightseagreen;
+		}
+	</style>
+</head>
+
+<body>
+
+	<header>
+		<h1>U.S. Natural Gas & Petroleum Power Plants</h1>
+	</header>
+	<section>
+		<div class="row">
+			<div id="map"></div>
+			<div id="legend">
+				<p>
+					<img src="graphics/PeachPuff.svg">
+					<span class="legend-ng">Natural Gas</span>
+					<img src="graphics/LightSeaGreen.svg">
+					<span class="legend-p">Petroleum</span>
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="row">
+			<div class="first-column">
+				<h2>Patterns of energy production</h2>
+				<p>This bivariate map compares natural gas and petroleum plants in the United State. The location of
+					plants that generate power based on natural gas or petroleum are charted and represented with a
+					circle marker whose area is based on the total capacity of the power plant. Data available via popup
+					and tooltip include: plant name, total capacity, and capacity by type, including natural gas,
+					petroleum, and any other sources of energy produced.</p>
+				<h3>Data Source</h3>
+				<p>
+					The U.S. Energy Information Administration (EIA) collects, analyzes, and disseminates independent
+					and impartial energy information to promote sound policymaking, efficient markets, and public
+					understanding of energy and its interaction with the economy and the environment. The EIA-923 form
+					provides monthly and annual data on generation and fuel consumption at the power plant and prime
+					mover level.
+				</p>
+
+				<h3>Social links</h3>
+				<ul>
+					<li>See my projects on GitHub: <a href="https://github.com/aimeeavant">Aimee Armour-Avant</a></li>
+					<li>Follow me on twitter: <a href="https://twitter.com/aimeeavant">@AimeeAvant</a></li>
+					<li>Visit my <a href='https://www.behance.net/aimeeavant'>mapping portfolio</a>.</li>
+				</ul>
+
+
+			</div>
+			<div class="column">
+				<img class="max-image-width" src="https://live.staticflickr.com/65535/49136062311_cc4b60850d_b.jpg"
+					title="Electricity and bubbles in a Lexington sunset">
+				<div class="linkbox">
+					Ravenswood Generating Station by Torsten Reimer. Ravenswood Generating Station is a power plant at
+					the East River in Long Island; you can see the Queensboro Bridge to the right.
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<hr>
+
+		<a href="https://newmapsplus.github.io">
+			<img src="https://newmapsplus.github.io/assets/graphics/logo-2018-nmp-75px-h-gray.png"
+				alt="University of Kentucky Geography">
+		</a>
+
+		<a href="https://uky-gis.github.io">
+			<img src="https://newmapsplus.github.io/assets/graphics/logo-2018-geography-75px-h.png"
+				alt="University of Kentucky Geography">
+		</a>
+
+	</footer>
+
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+	<script src="data/power-plants.js"></script>
+	<script>
+		// map options
+		var options = {
+			center: [38, -95],
+			zoom: 4
+		}
+
+		// create a Leaflet map in our division container with id of 'map'
+		var map = L.map('map', options);
+
+		// Leaflet providers base map URL
+		var basemap_source =
+			'https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/dark_all/{z}/{x}/{y}.png'
+
+		// Leaflet providers attributes
+		var basemap_options = {
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+			subdomains: 'abcd',
+			minZoom: 4
+		};
+
+		// request some basemap tiles and add to the map
+		var tiles = L.tileLayer(basemap_source, basemap_options).addTo(map);
+
+		/*  -- - - - - - -  data preprocessing  - - - - - - - - */
+		// reference data/power-plants.js
+		plants.features.sort(function (a, b) {
+			return b.properties.capacity_mw - a.properties.capacity_mw;
+		});
+
+
+
+
+		/*  -- - - - - - -  map layers  - - - - - - - - */
+
+		var commonStyles = {
+			weight: .5,
+			stroke: true,
+			fillColor: 'white',
+			fillOpacity: .2
+		}
+
+		var plantLayer = L.geoJson(plants, {
+			pointToLayer: function (feature, latlng) {
+				return L.circleMarker(latlng, commonStyles);
+			},
+			filter: function (feature) {
+				if (feature.properties.fuel_source['Natural Gas'] || feature.properties.fuel_source.Petroleum) {
+					return feature;
+				}
+			},
+			onEachFeature: function (feature, layer) {
+
+				if (feature.properties.fuel_source['Natural Gas']) {
+					layer.setStyle({
+						fillColor: 'PeachPuff',
+						color: 'PeachPuff',
+						opacity: .4,
+						fillOpacity: .4,
+						radius: getRadius(feature.properties.capacity_mw)
+					});
+				} else if (feature.properties.fuel_source.Petroleum) {
+					layer.setStyle({
+						fillColor: 'LightSeaGreen',
+						color: 'LightSeaGreen',
+						opacity: .4,
+						fillOpacity: .4,
+						radius: getRadius(feature.properties.capacity_mw)
+					});
+				}
+
+				layer.on('mouseover', function () {
+					layer.setStyle({
+						fillColor: 'OrangeRed'
+					});
+				});
+				layer.on('mouseout', function () {
+					plantLayer.resetStyle(layer);
+				});
+
+
+				/// - - - - - popup creation
+				// name of power plant in bold
+				// total installed capacity produced by the plant
+				// respective amounts produced by each fuel source
+
+				/* 				"properties": {
+											  "code": 56291,
+											  "plant_name": "Horse Hollow Wind Energy Center",
+									"capacity_mw": 735.5,
+									"fuel_source": {
+										  "Wind": 735.5 
+				*/
+
+				function plantName(Object) {
+					var plantName = ""
+					for (var key in Object) {
+						if (feature.properties.fuel_source['Natural Gas']) {
+							plantName = `<h2 class="gas">${layer.feature.properties.plant_name}</h2>`
+						} else {
+							plantName = `<h2 class="petrol">${layer.feature.properties.plant_name}</h2>`
+						}
+					}
+					return plantName;
+				}
+
+
+				function fuelSources(Object) {
+					fuelSources = ""
+					for (var key in Object) {
+						fuelSources += `<b>Fuel Source:</b> ${key}: ${Object[key]}<br> `
+					}
+					return fuelSources;
+				}
+
+				var fuelSourceList = fuelSources(layer.feature.properties.fuel_source)
+				var plantNames = plantName(layer.feature.properties.fuel_source)
+
+				var toolTip = `${plantNames} <b>Capacity:</b> ${layer.feature.properties.capacity_mw} MW <br> ${fuelSourceList}`
+
+				layer.bindTooltip(toolTip);
+				layer.bindPopup(toolTip);
+
+			} // end onEachFeature
+
+		}).addTo(map);
+
+
+		/*  -- - - - - - -  support functions  - - - - - - - - */
+
+		function getRadius(area) {
+			var radius = Math.sqrt(area / Math.PI) + 5;
+			return radius * .4; //  arbitrary scale factor
+		}
+
+	</script>
+
+</body>
+
+</html>

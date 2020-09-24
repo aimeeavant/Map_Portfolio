@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<!-- Use the HTML and CSS you developed in module 01 to fill out this template.-->
+
+<head>
+    <meta charset=utf-8 />
+    <title>Lab 05 Work Template</title>
+
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel='icon' href='https://newmapsplus.github.io/favicon.ico' type='image/x-icon' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" />
+
+    <!-- **************************************************************** -->
+    <!-- Check to make this links to the most current version of Leaflet! -->
+    <!-- **************************************************************** -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+    <!-- **************************************************************** -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+    <style>
+        /* The map element */
+        #map {
+            width: 100%;
+            height: 500px;
+        }
+
+        /* Add HTML element styles */
+
+        body {
+            background-color: #F0F8FF;
+            color: DarkSlateBlue;
+            font-family: 'Shadows Into Light', cursive;
+        }
+        section.content, header, footer {
+            padding: 0 25px;
+        }
+
+        /* Change opacity on hover over the icon class */
+
+        .icon:hover {
+            opacity: .8;
+        }
+
+        /* Modify Leaflet's default popup style */
+
+        .leaflet-popup-content-wrapper {
+            background-color: #F0F8FF;
+            padding: 5px;
+            margin: 0;
+
+        }
+
+        .leaflet-popup-content h3 {
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 1.5em;
+            color: DarkSlateBlue;
+            margin-bottom: 6px;
+        }
+
+        .leaflet-popup-content p {
+            margin: 3px 0 6px;
+            font-size: 1.1em;
+        }
+
+        .leaflet-popup-content a {
+            font-weight: normal;
+            color: DarkSlateBlue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Places of interest (pois) in New Orleans, LA </h1>
+    </header>
+
+    <section>
+        <div id='map'></div>
+    </section>
+
+    <section class='content'>
+
+        <p>Additional information about <a href="#">the data</a> and map goes here. </p>
+
+    </section>
+    <footer>
+        <p>Map authored by me, AIMEE ARMOUR-AVANT</p>
+        <hr>
+
+        <a href="https://newmapsplus.github.io">
+            <img src="https://newmapsplus.github.io/assets/graphics/logo-2018-nmp-75px-h-gray.png"
+                alt="University of Kentucky Geography">
+        </a>
+
+        <a href="https://uky-gis.github.io">
+            <img src="https://newmapsplus.github.io/assets/graphics/logo-2018-geography-75px-h.png"
+                alt="University of Kentucky Geography">
+        </a>
+    </footer>
+    <!-- **************************************************************** -->
+    <!-- Check to make this links to the most current version of Leaflet! -->
+    <!-- **************************************************************** -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <!-- **************************************************************** -->
+    <script>
+        // Step 1: Adjust the map's center coordinates and zoom level
+        // First, center the map on the area of interest within New Orleans using the appropriate coordinate values and zoom level.
+        var map = L.map('map', {
+            center: [29.9584, -90.0619],
+            zoom: 14
+        });
+
+        // Get basemap URL from Leaflet Providers
+        var basemap_url = 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png'
+
+        // Get basemap attributes from Leaflet Providers
+        var basemap_attributes = {
+            maxZoom: 18,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        };
+        // requests some map tiles
+        var tiles = L.tileLayer(basemap_url, basemap_attributes);
+
+        map.addLayer(tiles);
+
+        // declares a variable named hotspots and assigns an array to it. 
+        // The array contains one item, a JavaScript object.
+        // This object has two properties: name and properties
+        // The value of properties is another object containing several key/value pairs:
+        // keys: description, coordinates, url, phone
+        // values: string, array, string, string
+        var hotspots = [{ // start array | start first item in array which is an object
+            name: "",
+            properties: {
+                description: "",
+                coordinates: [],
+                url: '',
+                phone: '',
+                icon: ''
+            } // end object that is value of properties
+        }]; // end first item in array which is an obect| end array | end var statement
+
+        // add data
+        hotspots['0'].name = "Mariza"
+        hotspots['0'].properties = {
+            description: "Italian-inspired fare dished out in an airy loft building with an industrial-chic vibe.",
+            coordinates: [29.9629337, -90.0501008],
+            url: '',
+            phone: '(504) 598-5700',
+            icon: 'svgs/restaurant-15.svg',
+            notice: 'On no! Mariza is permanently closed.'
+        }
+        console.log(hotspots) // returns array
+        console.log(hotspots[0]) // returns poi object
+        console.log(hotspots[0].properties) // returns properties object
+
+        // add data
+        // above method does not work, need to push
+        hotspots.push({
+            name: "Bywater American Bistro",
+            properties: {
+                description: "Italian-inspired fare dished out in an airy loft building with an industrial-chic vibe.",
+                coordinates: [29.96254, -90.04794],
+                url: 'http://bywateramericanbistro.com/',
+                phone: '(504) 605-3827',
+                icon: 'svgs/restaurant-15.svg'
+            }
+        })
+        console.log(hotspots) // returns array
+        console.log(hotspots[1]) // returns poi object
+        console.log(hotspots[1].properties) // returns properties object
+
+        // add data
+        hotspots.push({
+            name: "Audubon Butterfly Garden and Insectarium",
+            properties: {
+                description: "Use all five senses as you explore North America’s largest museum devoted to insects and their relatives.",
+                coordinates: [29.95158, -90.06610],
+                url: 'https://audubonnatureinstitute.org/insectarium',
+                phone: '(504) 524-2847',
+                icon: 'svgs/attraction-15.svg'
+            }
+        })
+        console.log(hotspots) // returns array
+        console.log(hotspots[2]) // returns poi object
+        console.log(hotspots[2].properties) // returns properties object
+
+        // add data
+        hotspots.push({
+            name: "Saint Louis Cemetery No. 2",
+            properties: {
+                description: "",
+                coordinates: [29.96071, -90.07595],
+                url: 'https://nolacatholiccemeteries.org/cemeteries/st-louis-cemetery-2/',
+                phone: '(504) 482-5065',
+                icon: 'svgs/cemetery-15.svg'
+            }
+        })
+
+        for (var i = 0; i < hotspots.length; i++) {
+            // variable to reference the zero index
+
+            // create shortcut to hotspots[i].properties
+            var props = hotspots[i].properties;
+
+            // create a string for pop up and assign it to a variable
+            // conditional statements to test and only display information when available
+            var popup = ""
+            if (hotspots[i].name) { popup += `<h3>${hotspots[i].name}</h3>` }
+            if (props.description) { popup += `<p>${props.description}</p>` }
+            if (props.url) { popup += `<p><b>website</b>: <a href='${props.url}'>${props.url}</a></p>` }
+            if (props.phone) { popup += `<p><b>phone</b>: ${props.phone}</p>` }
+            if (props.notice) { popup = `<p><b>Notice</b>: ${props.notice}</p>` }
+
+            // grab icon using shortcut and construct Leaflet info
+            var icon = L.icon({
+                iconUrl: props.icon,
+                iconSize: [40, 40],
+                popupAnchor: [0, -22],
+                className: "icon"
+            });
+
+            // alternate formatting to create marker
+            L.marker(hotspots[i].properties.coordinates, { icon: icon })
+                .addTo(map)
+                .bindPopup(popup)
+                .on("mouseover", function () { this.openPopup() })
+                .on("mouseout", function () { this.closePopup() })
+
+        }
+    </script>
+
+</body>
+
+</html>

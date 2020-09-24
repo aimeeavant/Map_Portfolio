@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset=utf-8 />
+	<title>American Viticultural Areas in San Luis Obispo County</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background: #FFFCF5;
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 400;
+			color: #4E1121;
+		}
+
+		section {
+			width: 80%;
+			margin: 20px auto;
+		}
+
+		h1 {
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 300;
+			font-size: 2.5em;
+			/* The em unit. 3x the current size */
+			letter-spacing: .04em;
+			text-transform: uppercase;
+		}
+
+		h2 {
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 700;
+			color:#4E1121;
+			font-size: 1.1em;
+			letter-spacing: .04em;
+		}
+
+		p {
+			font-size: 1em;
+			line-height: 1.5em;
+		}
+
+		a {
+			color: #97755F;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		ul {
+			padding-left: 20px;
+		}
+
+		li {
+			margin: 10px 0
+		}
+
+		#map {
+			width: 100%;
+			margin: 0px auto;
+		}
+
+		.max-width-img {
+			width: 100%;
+		}
+
+		.linkbox {
+            margin: 3px 0 20px 0;
+            display: block;
+            font-weight: 300;
+        }
+
+        hr {
+            border: 0px;
+            border-bottom: 1px solid #3d3d3d;
+            padding-top: 20px;
+        }
+
+        /* Use float property to make two-column layout */
+
+        .first-column {
+            float: left;
+            width: 48%;
+            padding-right: 20px;
+        }
+
+        .column {
+            float: left;
+            width: 48%;
+        }
+
+        /* Clear floats after the columns */
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .svg-title {
+            float: left;
+            display: inline-block;
+            width: 75px;
+            margin: -8px 10px -8px 0;
+        }
+
+        /* When browser is 800px wide or less */
+
+        @media screen and (max-width: 800px) {
+
+            .first-column,
+            .column {
+                width: 100%;
+            }
+        }
+	</style>
+</head>
+
+<body>
+
+	<div id='map'>
+		<img src="AVAmap-1200.jpg" class="max-width-img" alt="Map of American Viticultural Areas in San Luis Obispo County, CA">
+	</div>
+
+	<section>
+		<a href='AVAmap-8000.jpg' class="linkbox">Large version</a>
+
+		<h1>American Viticultural Areas in San Luis Obispo County, California</h1>
+<div class="row">
+		<div class="first-column">
+		<h2>Authored by: Aimee Armour-Avant</h2>
+		<p>An American Viticultural Area, or AVA, is a specific type of appellation of origin used on wine labels. An AVA is a delimited grape-growing region with specific geographic or climatic features that distinguish it from the surrounding regions and affect how grapes are grown. Using an AVA designation on a wine label allows vintners to describe more accurately the origin of their wines to consumers and helps consumers identify wines they may purchase.</p>
+
+		<p>This map shows the AVAs in the county of San Luis Obispo in the state of California. The area has three major AVAs and a number of sub-AVAs.</p>
+		<p>This map was made using the following data sources: 
+			<ul>
+			<li>County boundary: <a href="http://opendata.slocounty.ca.gov/" target="blank">County of San Luis Obispo</a></li>
+			<li>Roads: <a href="https://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2019&layergroup=Roads" target="blank">US Census 2019 Tiger/Line Shapefiles: Roads</a></li>
+			<li>Highways: <a href="https://gis.data.ca.gov/datasets/8887c21dce1d45ad93cd78a10b24781b_0/data?geometry=-149.257%2C31.074%2C-89.447%2C43.279" target="blank">California State Geoportal: National Highway System</a></li>
+			<li>Shape files for AVAs: <a href="https://www.ttb.gov/images/AVA/" target="blank">Alcohol and Tobacco Tax and Trade Bureau</a></li>
+			<li>Vineyards: <a href="#" target="blank">Open Street Map</a></li>
+			</ul>
+			 </p>
+		<ul>
+			<li>See my projects on GitHub: <a href="https://github.com/aimeeavant">Aimee Armour-Avant</a></li>
+		</ul>
+		</div>
+		<div class="column">
+			<img src="rodrigo-abreu-Cj4CWKQllOM-unsplash.jpg"
+				title="Wine bottles in vineyard" class="max-width-img">
+			<div class="linkbox"><span>Photo by <a href="https://unsplash.com/@rodrigospabreu?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Rodrigo Abreu</a> on <a href="/s/photos/vinyards?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></div>
+
+		</div>
+		</div>
+		<hr>
+        <!-- <h4><a href="https://uky-gis.github.io">UKy GIS and Mapping</a></h4> -->
+        <a href="https://uky-gis.github.io">
+            <img src="https://uky-gis.github.io/graphics/logo-color-400px.png" alt="University of Kentucky Geography"></a> 
+            <a href="https://newmapsplus.as.uky.edu">
+                <img src="https://newmapsplus.as.uky.edu/sites/default/files/NMP%20Logo.png" alt="New Maps Plus"></a>
+	</section>
+
+</body>
+
+</html>

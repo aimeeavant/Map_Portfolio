@@ -1,0 +1,138 @@
+/* overall settings */
+  body {
+      margin: 0;
+      padding: 0;
+      background: #faf8ed;
+      font-family: 'Public Sans', sans-serif;
+      font-weight: 200;
+      color: #4F4F4F;
+      font-size: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #425E2C; 
+      margin-bottom: .2em;
+      margin-top: 0;
+    }
+    h1 {
+      font-size: 2.5em;
+      font-weight: 700;
+    }
+    h2 {
+      font-size: 2em;
+      font-weight: 500; /* Hmm... what's up with this font. Seems ok now */
+    }
+    p {
+      font-size: 1.1em;
+      line-height: 1.5em;
+    }
+    h2+p {
+      margin-top: 0px;
+    }
+    h2+ul {
+      margin-top: 0px;
+    }
+    p+h2 {
+      margin-top: 1.3em;
+    }
+    a {
+      color: #395D73;
+      font-weight: bold;
+      text-decoration: none;
+      }
+    a:hover {
+      text-decoration: underline;
+      color: #142129;
+      }
+    ul {
+      padding-left: 20px;
+      }
+    li {
+      margin: 10px 0;
+      }
+    figure {
+        margin: 0;
+      }
+    figcaption {
+        font-size: x-small;
+        text-align: center;
+      }
+      button {
+        background-color:#425E2C; 
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin-bottom: 25px;
+      }
+
+/* Styles base on classes added */
+      .highlight {
+        color: #f05716; 
+        font-weight: bold;
+      }
+      .img-fill {
+          width: 100%;
+          height: auto;
+      }
+
+
+/* Layout Settings */
+      header, section, footer {
+        width: 80%;
+        margin: 10px auto;
+        }
+      /* Use float property to make two-column layout */
+      .first-column {
+        float: left;
+        width: 49%;
+        padding-right: 2%;  
+        }
+      .second-column {
+        float: left;
+        width: 49%;
+        }
+      /* Clear floats after columns */
+      .row::after {
+        content: "";
+        display: block;
+        clear: both;
+        }
+      /* Display col 100% wide until display is wider than 900px */
+      @media screen and (max-width: 900px) {
+      .first-column,
+      .second-column {
+        width: 100%;
+        }
+      }
+
+
+
+/* Map Styles */
+      #map {
+        width: 100%;
+        height: 540px;
+        margin: 10px auto;
+        border: 2px solid #d3d3d3;
+        }
+        h1.popup {
+          line-height: 1;
+          margin-bottom: 0.1em;
+        }
+        p.popup {
+          line-height: 1.2em;
+          margin: 0;
+          padding: 0;
+        }
+        img.popup {
+          margin-top: 0.5em;
+          padding: 0;
+        }
+        .leaflet-popup-content-wrapper {
+          background: #faf8ed;
+        }
+        .leaflet-popup-content {
+          width: 200px;
+        }

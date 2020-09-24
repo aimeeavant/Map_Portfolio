@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset=utf-8 />
+	<title>Population Density: US States by County</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background: #d3d3d3;
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 400;
+			color: #447274;
+		}
+
+		section {
+			/* width: 960px; */
+			width: 80%;
+			margin: 20px auto;
+		}
+		section.center {
+			text-align: center;
+		}
+		h1 {
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 300;
+			font-size: 2.5em;
+			letter-spacing: .04em;
+			text-transform: uppercase;
+		}
+
+		h2 {
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 500;
+			font-size: 1.25em;
+			letter-spacing: .04em;
+		}
+		h3 {
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 400;
+			font-size: 1em;
+			letter-spacing: .04em;
+		}
+		h4 {
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 300;
+			font-size: .8em;
+			letter-spacing: .04em;
+		}
+
+		p {
+			font-size: 1em;
+			line-height: 1.5em;
+
+		}
+
+		a {
+			color: rgb(61, 66, 66);
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		ul {
+			padding-left: 20px;
+		}
+
+		li {
+			margin: 0;
+			font-size: .5em;
+		}
+
+		#map {
+			margin: 50px auto 0 auto;
+			border: 5px solid #ffffff;
+		}
+		.max-width-img {
+			width: 100%;
+		}
+
+		/* add custom style class here */
+	</style>
+</head>
+
+<body>
+
+	<section>
+
+		<h1>Choropleth Mapping</h1>
+		<p>This area-based map displays the distribution of people in the United States. Density is shown as people per square mile (phenomenon) across US Counties (unit) using a 5-class quantile classification.</p>
+		<div id='map'>
+			<img src="Lab_04_1200.png" class="max-width-img" alt="A map of US Population Density">
+		</div>
+	</section>
+	<section class="center">
+		<h3><a href="Lab_04_8000.png">View a high-resolution verion of the map.</a> </h3>
+		<h4><a href="geojson/michigan_people_sq_mi.geojson">Download GeoJSON data for Michigan.</a> </h5>
+		
+	</section>
+	<section>
+			<h5>Authored by: Aimee Armour-Avant @ New Maps Plus, Uky Department of Geography <br>
+				See my projects on GitHub: <a href="https://github.com/aimeeavant">Aimee Armour-Avant</a></h5>
+			<ul>
+				<li>Software used: QGIS3.12 on MacOC 10.14.</li> 
+				<li>Boundary data acquired from <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html" target="blank">U.S. Census Bureau</a>.</li>
+				<li>Population data acquired from <a href="https://www.ers.usda.gov/data-products/county-level-data-sets/download-data/" target="blank">USDA Economic Research Service</a>.</li>
+			</ul>
+	</section>
+</body>
+
+</html>

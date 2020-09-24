@@ -1,0 +1,44 @@
+Map prepared by Aimee Armour-Avant @ New Maps Plus, Uky Department of Geography
+May 2020
+Software used: QGIS3.12 on MacOC 10.14. Data acquired from:
+National Earth and POI Factory.
+
+"admin" = 'Canada' OR "admin" = 'Mexico' OR "admin" = 'United States of America' OR "sov_a3" = 'US1' OR "sov_a3" = 'MEX' OR "sov_a3" = 'CAN'
+OR "adm0_a3" = 'MAF'
+OR "adm0_a3" = 'SXM'
+OR "adm0_a3" = 'HTI'
+OR "adm0_a3" = 'DOM'
+OR "adm0_a3" = 'USG'
+OR "adm0_a3" = 'CUB'
+OR "adm0_a3" = 'USA'
+OR "adm0_a3" = 'CAN'
+OR "adm0_a3" = 'MEX'
+OR "adm0_a3" = 'GRL'
+OR "adm0_a3" = 'CUW'
+OR "adm0_a3" = 'ABW'
+OR "adm0_a3" = 'BHS'
+OR "adm0_a3" = 'TCA'
+OR "adm0_a3" = 'SPM'
+OR "adm0_a3" = 'TTO'
+OR "adm0_a3" = 'GRD'
+OR "adm0_a3" = 'VCT'
+OR "adm0_a3" = 'BRB'
+OR "adm0_a3" = 'LCA'
+OR "adm0_a3" = 'DMA'
+OR "adm0_a3" = 'UMI'
+OR "adm0_a3" = 'MSR'
+OR "adm0_a3" = 'ATG'
+OR "adm0_a3" = 'KNA'
+OR "adm0_a3" = 'VIR'
+OR "adm0_a3" = 'BLM'
+OR "adm0_a3" = 'PRI'
+OR "adm0_a3" = 'AIA'
+OR "adm0_a3" = 'VGB'
+OR "adm0_a3" = 'JAM'
+OR "adm0_a3" = 'CYM'
+OR "adm0_a3" = 'BMU'
+OR "adm0_a3" = 'BJN'
+OR "adm0_a3" = 'SER'
+
+
+Number of breweries per 50km hexagon.

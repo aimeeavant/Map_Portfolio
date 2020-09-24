@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<!-- Use the HTML and CSS you developed in module 01 to fill out this template.-->
+
+<head>
+	<meta charset=utf-8 />
+	<title>Lab 04 Work Template</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+	<!--favicon*/-->
+	<link rel="icon" href="graphics/favicon.ico" />
+
+
+	<!--fonts */-->
+	<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,200;0,500;0,700;1,500&display=swap">
+	<link rel="stylesheet" href="style.css">
+
+	<!--styles */-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+	<link href="style.css" rel="stylesheet" />
+
+	<style>
+
+	</style>
+
+</head>
+
+<body>
+	<header>
+		<h1>Population density for three cities</h1>
+	</header>
+
+	<section>
+		<div id='map'></div>
+	</section>
+
+	<section>
+
+		<button id='map-cities'>Map Cities</button>
+
+		<h2>Calculating density measures on the fly</h2>
+
+		<p>This lab uses JavaScript functions to accept user input and calculate population density measures
+			for three cities in two different units. City information is stored as arrays and iterated
+			through with functions to calculate density.</p>
+
+	</section>
+
+	<footer>
+		<p>Map authored by Aimee Armour-Avant</p>
+		<hr>
+		<a href="https://newmapsplus.github.io">
+			<img alt="University of Kentucky New Maps Plus" src="graphics/logo-2018-nmp-75px-h-gray.png" width="70">
+		</a>
+		<a href="https://uky-gis.github.io">
+			<img alt="University of Kentucky Department of Geography" src="graphics/logo-2018-geography-75px-h.png"
+				height="32">
+		</a>
+	</footer>
+
+	<!-- Check if this is latest version of Leaflet JS. -->
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+	<!-- add my data -->
+	<script src="data-array.js"></script>
+
+	<script>
+		// map options
+		var options = {
+			// center: [38.0489, -84.5025],
+			center: [38.68069, -85.17632], // move center to Carrolton
+			zoom: 8
+		}
+
+		// creates the Leaflet map
+		var map = L.map('map', options);
+
+		// Get basemap URL from Leaflet Providers
+		var basemap_url = 'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'
+
+		// Get basemap attributes from Leaflet Providers
+		var basemap_attributes = {
+			attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+		}
+
+		// requests some map tiles
+		var tiles = L.tileLayer(basemap_url, basemap_attributes);
+
+		// adds these tiles to the map
+		map.addLayer(tiles);
+
+		/*  1. Where indicated at the top of your script (below the code provided that creates the map and adds the tiles to the map), build 4 array structures to hold the names of 3 different cities of your choosing, their coordinates (lat/lng), their current population, and the area of each city. These will be similar to the arrays used in Lab 04; the cityCoords array will be a nested array. These arrays contain your data used for the map. */
+
+		//    var cities = // write 3 city names as Strings within an array
+		//    var cityCoords = // write a two-dimensional array of the coordinates for each city
+		//    var cityPops = // write the populations of the 3 cities as Numbers within an array
+		//    var cityAreas = // write the areas of the 3 cities as Numbers within an array
+		//	  NOTE. You can use the arrays you built in Lab 3, just make sure you keep track of your variable names
+
+		/* 	added as a script file, used same variables as before
+			var cities = [],
+    		coords = [],  // becomes a two-dimensional array because values are arrays
+    		populations = [],
+    		capitals = [],
+    		states = [];
+			figures = []; 
+			
+			then added:	
+			areas_mile 
+			areas_km
+		*/
+
+		/* 	2. Within the addEventListener() callback function, replace the console.log() statement with a call to a function named mapCities() and pass the units variable as an argument. We wish to wait until the user has entered either 'miles' or 'km' before executing the code within the mapCities() function.*/
+
+		var button = document.getElementById("map-cities");
+
+		// listen for a user click event on this button. When the user clicks, the contents of the addEventListener's function (known as a "callback function") is executed.
+
+		// Consideration section:
+		/* The do...while statement creates a loop that executes a specified statement until the test condition evaluates to false. The condition is evaluated after executing the statement, resulting in the specified statement executing at least once. */
+		// working with a false condition evaluation (so, user input does not equal miles or km),
+		// nope, code runs, if condition is true, runs again, if condition is false, stops 
+		// what code should run once - the prompt
+		// what condition should be true - user input equals miles or km
+		// but how does the funciton call run, if in do section runs before text condition
+		// so keeps going until something is made correct
+		// can't get to work with two test conditions: (units !== "miles" or units !== "km");
+		// write another test
+
+		button.addEventListener("click", function () {
+			// prompts user to enter text, and then assigns the string that is entered to the variable units.
+			// syntax result = window.prompt(message, [default value displayed in the text input field]); 
+			
+			do {
+				var units = prompt('Enter the units for calculating population density', 'Enter "miles" or "km":');
+				
+				var input = "help";
+				if (units == "miles") { input = "good"; console.log(input);}
+				else if (units == "km") { input = "good"; console.log(input);}
+				else { input = "bad"; console.log(input);}
+				console.log(input)
+				console.log(units);
+
+			} while (input == "bad"); // keep going until not bad
+
+		// call a function named mapCities, and send the units variable as an argument
+		mapCities(units);
+
+		} //callback function ends here
+		); // addEventListener ends here
+
+		/* 	3. Immediately write a new function named mapCities() [3A] where the comments indicate. This function will need to accept the units variable as a parameter [3B]. Within this function's body, write code that loops through the cities array [3C]. Within this loop, you can access each of the city's population and area values (i.e., using cities[i] syntax, see Lab 04). 
+				// we are in lab 04
+				// this doesn't make sense, the cities array only contains city names, did I miss a step?
+				// I don';'t think so, above says to have 4 arrays that each contain the data for 3 cities
+		
+		Within the loop, call a second function named calcPopDensity() [3D] and pass the population, the area, and the units (which will be either 'km' or 'miles') as arguments [3E].
+		
+		The return value from this function will be assigned to a variable named density (similar to how the prompt() function [[?? which function mapCities or calcPopDensity or both ???]] assigns the return value to the variable units above). [3F - part 1] [3F - part 2]*/
+		console.log("mapCities");
+
+		// write a function here named mapCities so that it accepts units as a parameter
+		function mapCities(units) { // [3A] [3B]
+			// loops through the cities array
+			for (i = 0; i < cities.length; i++) { // [3C]
+				console.log(populations[i]); // ok
+				console.log(areas_mile[i]); // ok
+				console.log(units); // ok
+				// call a second function named calcPopDensity() and pass the population, the area, and the units 
+				var density = calcPopDensity(populations[i], areas_mile[i], areas_km[i], units); // [3D] [3E] [3F - part 1]
+				console.log(density);
+
+				console.log(`Density in mapCities ${density}`); // ok
+				// return density; removed
+
+				// add marker to map [6]
+				let popup = `<h1 class="popup">${cities[i]}</h1>`;
+				// append info if city is a capital city
+				// test if capital
+				if (capitals[i] == true) {
+					// concatenate a string to the existing string value
+					popup += `<p class="popup">Capital of ${states[i]}</p>`;
+				}
+				popup += `<p class="popup"><b>Population:</b> ${populations[i].toLocaleString()}</p>`;
+				popup += `<p class="popup"><b>Area:</b> ${density.toLocaleString()} ${units}</p>`;
+				popup += `<p class="popup"><b>Density:</b> ${density.toLocaleString()} people per ${units}</p>`;
+				// add image at end
+				popup += `${figures[i]}`;
+				// create the Leaflet marker using the coordinates
+				L.marker(coords[i])
+					.addTo(map) // add it to the map
+					.bindPopup(popup);
+			} // end of for loop
+		} // end of function
+
+		// write a function named calcPopDensity here so that it accepts a
+		// single city's population, area, and the value for units ('miles' or 'km')
+		// entered by the user within the prompt statement
+
+		/* 4. Now write the new function named calcPopDensity() where indicated (outside of the mapCities function's body! This function needs to accept 3 values as parameters: a single city's population, its area, and the variable units designated within the mapCities function (i.e., 'miles' or 'units'). Write code within the function's body that accomplishes:
+			a. First determine whether the units are in miles or kilometers using conditional logic, and then
+			b. Calculate the population density using the population and area values before returning the result to the caller (i.e., this value will be assigned to the density variable within the mapCities function). Your code within these conditional (if/else) statement bodies will need to mathematically convert the miles to kilometers if the value of units is changed to be 'km'. 
+			c. Return the calculated density value
+*/
+
+		function calcPopDensity(pop, area_mile, area_km, units) {
+			if (units == "miles") {
+				var calcDensity = pop / area_mile;
+			} else if (units == "km") {
+				var calcDensity = pop / area_km;
+			} else {
+				console.log("user entered something else");
+				// alert("You entered an invaild unit. Map will be created using miles.") // alerts the user 3 times :(
+				var calcDensity = pop / area_mile;
+			}
+			console.log(calcDensity); // undefined, why? changed from let to var and worked
+			return calcDensity; // [3F - part 2]
+
+		}
+
+		/* 6. Once you have the density value available to you within the mapCities() function loop, you can then build up the markers and popups in a similar fashion as in Lab 03. [6] There will be one variable named popup that contains the content of the popup, which should include the name of the city and the density of the city. The coordinates will be used to place each marker in its correct position. */
+
+		// issue 1: refine how handles bad user input
+			// have else if that sets to miles, revise to prompt again, this prompted three times because of location
+			// finally figured out the do while negative confusion 
+
+		// issue 2: does not run again if click button
+		// runs again and replaces the existing popups with new ones, not sure why this changed
+
+		// isssue 3: pop up not visible because out of frame, odd that the map moves and the popup is in the frame on second click after after another city has been clicked but not first or unless another is clicked
+			// bandaid fixed by adjusting map center
+
+	</script>
+
+
+
+	<script>
+		// quiz testing  - moved to quiz-04.html to make working on the lab easier
+		// you can use multiple script sections
+		// moved css style file over, need to review
+		// what are the best ways to make styles portable from doc to doc ?
+	</script>
+
+</body>
+
+</html>
+
+<script>

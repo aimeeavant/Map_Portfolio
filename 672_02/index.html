@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=utf-8 />
+  <title>Lab 02 - Part III. Storing and accessing map information using variables and arrays</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+ <!--favicon via favicon.io */-->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet" />
+  <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet" />
+  <style>
+    /* CSS for styles go here */
+    @import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,200;0,500;0,700;1,500&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      background: #faf8ed;
+      font-family: 'Public Sans', sans-serif;
+      font-weight: 200;
+      color: #4F4F4F;
+      font-size: 100%;
+      }
+    /* separate elements with commas */
+    header, section, footer {
+      width: 80%;
+      margin: 10px auto;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        color: #425E2C; 
+        margin-bottom: .2em;
+        margin-top: 0;
+      }
+    h1 {
+        font-size: 2.5em;
+        font-weight: 900;
+      }
+    h2 {
+        font-size: 2em;
+        font-weight: 300;
+      }
+      p {
+        font-size: 1.1em;
+        line-height: 1.5em;
+      }
+      h2+p {
+        margin-top: 0px;
+      }
+      h2+ul {
+        margin-top: 0px;
+      }
+      p+h2 {
+        margin-top: 1.3em;
+      }
+      a {
+        color: #395D73;
+        font-weight: bold;
+        text-decoration: none;
+        }
+      a:hover {
+        text-decoration: underline;
+        color: #142129;
+        }
+      ul {
+        padding-left: 20px;
+        }
+      li {
+        margin: 10px 0;
+        }
+        .highlight {
+          color: #f05716; 
+          font-weight: bold;
+        }
+        .img-fill {
+            width: 100%;
+            height: auto;
+        }
+        figure {
+          margin: 0;
+        }
+        figcaption {
+          font-size: x-small;
+          text-align: center;
+        }
+        /* Use float property to make two-column layout */
+        .first-column {
+          float: left;
+          width: 49%;
+          padding-right: 2%;  
+          }
+        .second-column {
+          float: left;
+          width: 49%;
+          }
+        /* Clear floats after columns */
+        .row::after {
+          content: "";
+          display: block;
+          clear: both;
+          }
+        /* Display col 100% wide until display is wider than 900px */
+        @media screen and (max-width: 900px) {
+        .first-column,
+        .second-column {
+          width: 100%;
+          }
+        }
+        #map {
+          width: 100%;
+          height: 540px;
+          margin: 10px auto;
+          border: 2px solid #d3d3d3;
+          }
+          
+          h1.popup {
+            line-height: 1;
+            margin-bottom: 0.1em;
+          }
+          p.popup {
+            line-height: 1.2em;
+            margin: 0;
+            padding: 0;
+          }
+          img.popup {
+            margin-top: 0.5em;
+            padding: 0;
+          }
+          .leaflet-popup-content-wrapper {
+            background: #faf8ed;
+          }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Kentucky Cities</h1>
+  </header>
+  <section>
+      <!-- Add map and body content -->
+    <div id='map'>
+      </div>
+    <div class="row"><!-- Start row -->
+      <div class="first-column"><!-- Start first column -->
+        <h2>About this Map</h2>
+        <p>This map demonstrates storing and accessing map information using variables and arrays with the Leaflet javascript library. Three cities are indicated with markers. Population information and an image of each city's downtown are provided through a popup window on click and a tooltip on hover. Popups are bound to markers and fire when a user clicks on the marker. These are in contrast to tooltips which are revealed on hover, a state not achievable on a mobile device. </p>
+        <p>Population data, images, and Lat/Long coordinates from Wikipedia.</p>
+        
+      </div><!-- End first column -->
+
+      <div class="second-column"><!-- Start second column -->
+        <h2>About the Mapmaker</h2>
+        <p>Aimee Armour-Avant is a part of the <a href="https://newmapsplus.as.uky.edu/">NewMapsPlus</a> program at <a href="http://www.uky.edu/UKHome/">The University of Kentucky</a>.</p>
+          <ul>
+          <li>See my projects on GitHub: <a href="https://github.com/aimeeavant">aimeeavant</a></li>
+          <li>Follow me on twitter: <a href="https://twitter.com/aimeeavant">@aimeeavant</a></li>
+          <li>Visit my <a href='https://www.behance.net/aimeeavant'> portfolio</a>.</li>
+          </ul>
+      </div><!-- End second column -->
+    </div><!-- End row -->
+  </section>
+
+<footer>
+    <!-- Add footer content -->
+  <hr>
+  <a href="https://newmapsplus.github.io"> 
+        <img alt="University of Kentucky New Maps Plus" src="graphics/logo-2018-nmp-75px-h-gray.png" width="70" >
+        </a>
+  <a href="https://uky-gis.github.io">
+        <img alt="University of Kentucky Department of Geography" src="graphics/logo-2018-geography-75px-h.png" height="32">
+    </a>
+</footer>
+  <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+  <script>
+
+
+
+
+// Create variable to hold initial lat/long and zoom level.
+var options = {
+      center: [38.0489, -84.5025],
+      zoom: 8
+    }
+
+    // Use variable and Create a variable for the Leaflet map with above options variable and the id of the div. ?And add to page?
+    var map = L.map('map', options);
+
+    // Create variable to hold the basemap URL from Leaflet Providers
+   var basemap_url = 'http://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}'
+
+    // Create variable to hold the basemap attributes from Leaflet Providers. ?Is this some kind of array?
+     var basemap_attributes = {
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      subdomains: 'abcd',
+      minZoom: 1,
+      maxZoom: 16,
+      ext: 'png'
+    } 
+
+    // Create variable to hold the tiles, which is different than the basemap, and use the variables created above. Somehow Add tileset as a layer in our map even though the statement is declaring a variable.
+    var tiles = L.tileLayer(basemap_url, basemap_attributes).addTo(map);
+
+    // ************************************************** //
+
+    // STORING DATA AS VARIABLES IN ARRAYS
+
+    // a single statement that declares and assigns multiple variables for each of the info items needed for popup
+    // variables referencing data values
+    var city1Name = "Lexington",
+      city1Coords = [38.0297, -84.4947],
+      city1Pop = 308428,
+      city1Capital = false,
+      city1State = "Kentucky";
+
+ // a single statement that declares and assigns multiple variables, adds each of the variables to an array, can these statements be combined? no, see below
+    // arrays of data
+    var cities = [city1Name],
+      coords = [city1Coords],
+      populations = [city1Pop],
+      capitals = [city1Capital],
+      states = [city1State];
+
+/* looks like an array can contain an expression but not a statement
+var test1 = [var info1 = "info";], 
+test1 = [var info2 = "info2";];
+console.log(test1);
+results in syntax error */
+
+var city2Name = "Louisville",
+    city2Coords = [38.256111, -85.751389],
+    city2Pop = 597337,
+    city2Capital = false,
+    city2State = "Kentucky";
+
+      // adding variables to the arrays
+      cities[1] = city2Name;
+      coords[1] = city2Coords;
+      populations[1] = city2Pop;
+      capitals[1] = city2Capital;
+      states[1] = city2State;
+
+console.log("After Louisville: " + cities)
+
+var city3Name = "Frankfort",
+      city3Coords = [38.2, -84.866667],
+      city3Pop = 25527,
+      city3Capital = true,
+      city3State = "Kentucky";
+
+      // adding variables to the arrays
+      cities[2] = city3Name;
+      coords[2] = city3Coords;
+      populations[2] = city3Pop;
+      capitals[2] = city3Capital;
+      states[2] = city3State;
+
+      console.log("After Frankfort: " + cities)
+
+    // ADDING FIRST MARKER TO MAP
+
+    // creating a string (or really a template literal) of the Popup content and assigning it to a variable
+    // Lexington
+    var city1Popup = `<h1 class="popup">${cities[0]}</h1>`;
+
+// append info if city is a capital city
+// test if capital
+   if (capitals[0] == true) {
+     // concatenate a string to the existing string value
+       city1Popup += `<p class="popup">Capital of ${states[0]}</p>`;
+   }
+
+   city1Popup += `<p class="popup"><b>Population:</b> ${populations[0]}</p>`;
+
+// add image at end
+   city1Popup += `<figure class="popup">
+     <img class="img-fill popup" src="graphics/Lexington.jpg" alt="Image of Lexington">
+     <figcaption>Victorian Square in downtown Lexington.</figcaption>
+   </figure>`;
+
+    // create the Leaflet marker using the coordinates
+    L.marker(coords[0])
+      .addTo(map) // add it to the map
+      .bindPopup(city1Popup)
+      .bindTooltip(city1Popup); // bind the Popup
+
+    // ----------------------------- ----------------ADDING SECOND MARKER TO MAP
+    // Louisville
+    var city2Popup = `<h1 class="popup">${cities[1]}</h1>`;
+
+// append info if city is a capital city
+// test if capital
+   if (capitals[1] == true) {
+     // concatenate a string to the existing string value
+       city2Popup += `<p class="popup">Capital of ${states[1]}</p>`;
+   }
+
+   city2Popup += `<p class="popup"><b>Population:</b> ${populations[1]}</p>`;
+
+// add image at end
+   city2Popup += `<figure class="popup">
+     <img class="img-fill popup" src="graphics/Louisville.jpg" alt="Image of Louisville">
+     <figcaption>3rd and Broadway in Louisville.</figcaption>
+   </figure>`;
+
+    // create the Leaflet marker using the coordinates
+    L.marker(coords[1])
+      .addTo(map) // add it to the map
+      .bindPopup(city2Popup)
+      .bindTooltip(city2Popup); // bind the Popup
+
+
+// - --------------- ------ ---------------ADDING THIRD MARKER TO MAP
+//Frankfort
+var city3Popup = `<h1 class="popup">${cities[2]}</h1>`;
+
+     // append info if city is a capital city
+     // test if capital
+        if (capitals[2] == true) {
+          // concatenate a string to the existing string value
+            city3Popup += `<p class="popup">Capital of ${states[2]}</p>`;
+        }
+
+        city3Popup += `<p class="popup"><b>Population:</b> ${populations[2]}</p>`;
+
+// add image at end
+        city3Popup += `<figure class="popup">
+          <img class="img-fill popup" src="graphics/Frankfort.jpg" alt="Image of Frankfort">
+          <figcaption>Downtown Frankfort.</figcaption>
+        </figure>`;
+
+
+    // create the Leaflet marker using the coordinates
+    L.marker(coords[2])
+      .addTo(map) // add it to the map
+      .bindPopup(city3Popup)
+      .bindTooltip(city3Popup); // bind the Popup
+
+
+  </script>
+
+</body>
+
+</html>

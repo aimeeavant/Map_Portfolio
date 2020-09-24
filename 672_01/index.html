@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=utf-8 />
+  <title>Edinburgh, Scotland by Aimee Armour-Avant</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+ <!--favicon via favicon.io */-->
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" rel="stylesheet" />
+  <link href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" rel="stylesheet" />
+  <style>
+    /* CSS for styles go here */
+    @import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,200;0,500;0,700;1,500&display=swap');
+    body {
+      margin: 0;
+      padding: 0;
+      background: #faf8ed;
+      font-family: 'Public Sans', sans-serif;
+      font-weight: 200;
+      color: #4F4F4F;
+      font-size: 100%;
+      }
+    /* separate elements with commas */
+    header, section, footer {
+      width: 80%;
+      margin: 10px auto;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        color: #425E2C; 
+        margin-bottom: .2em;
+        margin-top: 0;
+      }
+    h1 {
+        font-size: 2.5em;
+        font-weight: 900;
+      }
+    h2 {
+        font-size: 2em;
+        font-weight: 300;
+      }
+      p {
+        font-size: 1.1em;
+        line-height: 1.5em;
+      }
+      h2+p {
+        margin-top: 0px;
+      }
+      h2+ul {
+        margin-top: 0px;
+      }
+      p+h2 {
+        margin-top: 1.3em;
+      }
+      a {
+        color: #395D73;
+        font-weight: bold;
+        text-decoration: none;
+        }
+      a:hover {
+        text-decoration: underline;
+        color: #142129;
+        }
+      ul {
+        padding-left: 20px;
+        }
+      li {
+        margin: 10px 0;
+        }
+        .highlight {
+          color: #f05716; 
+          font-weight: bold;
+        }
+        .img-fill {
+            width: 100%;
+            height: auto;
+        }
+        figcaption {
+          font-size: x-small;
+        }
+
+        figure {
+          margin: 0;
+        }
+
+        /* Use float property to make two-column layout */
+        .first-column {
+          float: left;
+          width: 49%;
+          padding-right: 2%;  
+          }
+        .second-column {
+          float: left;
+          width: 49%;
+          }
+        /* Clear floats after columns */
+        .row::after {
+          content: "";
+          display: block;
+          clear: both;
+          }
+        /* Display col 100% wide until display is wider than 900px */
+        @media screen and (max-width: 900px) {
+        .first-column,
+        .second-column {
+          width: 100%;
+          }
+        }
+        #map {
+          width: 100%;
+          height: 540px;
+          margin: 10px auto;
+          border: 2px solid #d3d3d3;
+          }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Edinburgh, Scotland</h1>
+  </header>
+  <section>
+    <div id='map'>
+      </div>
+    <div class="row"><!-- Start row -->
+      <div class="first-column"><!-- Start first column -->
+        <h2>About this Map and Webpage</h2>
+        <p>This map is made using the <a href="https://leafletjs.com/">Leaflet</a> web mapping javascript library. The basemap is provided by <a href="https://opentopomap.org">Open Topo</a> and uses data from <a href="https://www.openstreetmap.org">Open Street Map</a>.</p>
+        <p>The map is centered on Edinburgh, Scotland and zoomed to a level of 7 to provide context to the topograpy around the city. The map can be scrolled in to reveal more detail or out to show further context. The image of Edinburgh at the right can be clicked to reveal another image.</p>
+        <h2>About the Mapmaker</h2>
+        <p>Aimee Armour-Avant is a part of the <a href="https://newmapsplus.as.uky.edu/">NewMapsPlus</a> program at <a href="http://www.uky.edu/UKHome/">The University of Kentucky</a>.</p>
+       
+          <ul>
+          <li>See my projects on GitHub: <a href="https://github.com/aimeeavant">aimeeavant</a></li>
+          <li>Follow me on twitter: <a href="https://twitter.com/aimeeavant">@aimeeavant</a></li>
+          <li>Visit my <a href='https://www.behance.net/aimeeavant'> portfolio</a>.</li>
+          </ul>
+      </div><!-- End first column -->
+
+      <div class="second-column"><!-- Start second column -->
+        <figure id="photo_toggle">
+          <img class="img-fill" src="images/800px-Arthurs_seat_edinburgh.jpg" alt="Image of Edinburgh city" >
+          <figcaption>Edinburgh, showing Arthur's Seat, one of the earliest known sites of human habitation in the area. Source: <a href="https://en.wikipedia.org/wiki/File:Arthurs_seat_edinburgh.jpg">Wikimedia</a></figcaption>
+        </figure>
+      </div><!-- End second column -->
+    </div><!-- End row -->
+  </section>
+
+<footer>
+  <hr>
+  <a href="https://newmapsplus.github.io"> 
+        <img alt="University of Kentucky New Maps Plus" src="https://newmapsplus.github.io/assets/graphics/logo-2018-nmp-75px-h-gray.png" width="70" >
+        </a>
+  <a href="https://uky-gis.github.io">
+        <img alt="University of Kentucky Department of Geography" src="https://newmapsplus.github.io/assets/graphics/logo-2018-geography-75px-h.png" height="32">
+    </a>
+</footer>
+  <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+  <script>
+    // JavaScript for controlling behavior and interactivity goes here
+    // document.querySelector('h2').innerHTML = 'web mapping is sweet!';
+    // var map = document.getElementById('map');
+    //  map.style.background = '#4d4a9f';
+    // map.addEventListener('click', function() {
+    //   this.style.width = '50%';   
+    // });
+    // var newListItem = document.createElement('li');
+    // newListItem.innerHTML = "list item 4";
+    // document.querySelector('ul').appendChild(newListItem);
+
+
+var options = {
+    center: [55.953, -3.189],
+    zoom: 7
+}
+
+var map = L.map('map', options);
+
+var basemap_url = 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
+
+var basemap_attributes = {
+    attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
+    maxZoom: 17
+}
+
+var tiles = L.tileLayer(basemap_url, basemap_attributes).addTo(map);
+
+var message = 'Edinburgh, capital of Scotland.';
+
+L.marker(map.getCenter())
+    .bindTooltip(message)
+    .addTo(map)
+    .openTooltip();
+
+
+/*     <figure id="photo_toggle">
+          <img class="img-fill" src="images/800px-Arthurs_seat_edinburgh.jpg" alt="Image of Edinburgh city" >
+
+          <figcaption>Edinburgh, showing Arthur's Seat, one of the earliest known sites of human habitation in the area. Source: <a href="https://en.wikipedia.org/wiki/File:Arthurs_seat_edinburgh.jpg">Wikimedia</a></figcaption>
+
+        </figure> */
+
+// Code to Toggle photograph and caption
+// Select figure
+var change_figure = document.getElementById('photo_toggle')
+
+ // create data for images
+var oneSource = "images/900px-Old_College.jpg";
+var oneAlt = "Old College Designed by Robert Adam, University of Edinburgh. July 2008. Jonathan Oldenbuck";
+var oneCaption = "Old College Designed by Robert Adam, University of Edinburgh. July 2008. Jonathan Oldenbuck. Source: <a href=\"https://commons.wikimedia.org/wiki/File:Old_College.JPG\">Wikimedia</a>";
+var twoSource = "images/800px-Arthurs_seat_edinburgh.jpg";
+var twoAlt = "Image of Edinburgh city";
+var twoCaption = "Edinburgh, showing Arthur's Seat, one of the earliest known sites of human habitation in the area. Source: <a href='https://en.wikipedia.org/wiki/File:Arthurs_seat_edinburgh.jpg'>Wikimedia</a>";
+
+// Add event listener to photograph
+change_figure.addEventListener('click', function() {
+  
+  // get attributes currently displayed to user on click
+  var source = this.querySelector('img')
+  var caption = this.querySelector('figcaption')
+
+  // change currently displayed image and attributes
+  if (source.alt == oneAlt) {
+    source.src = twoSource
+    source.alt = twoAlt
+    caption.innerHTML = twoCaption
+  } else {
+    source.src = oneSource
+    source.alt = oneAlt
+    caption.innerHTML = oneCaption
+  }
+  
+  // this.querySelector('img').src = "images/900px-Old_College.jpg";
+  // this.querySelector('img').alt ="Old College Designed by Robert Adam, University of Edinburgh. July 2008. Jonathan Oldenbuck";
+  // this.querySelector('figcaption').innerHTML ="Old College Designed by Robert Adam, University of Edinburgh. July 2008. Jonathan Oldenbuck. Source: <a href=\"https://commons.wikimedia.org/wiki/File:Old_College.JPG\">Wikimedia</a>";
+});
+
+// cycle through images ? switch back ?
+
+  </script>
+
+</body>
+
+</html>

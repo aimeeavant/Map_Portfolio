@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset=utf-8 />
+  <title>Lab 8: Denver home location exercise</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <!-- Is the is the latest version of Leaflet? -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: rgb(43, 43, 43);
+      font-family: "Lato", sans-serif;
+      font-size: 100%;
+      font-weight: 300;
+      color: rgb(172, 172, 172);
+    }
+
+    header,
+    footer,
+    section {
+      padding: 6px 10%;
+      margin: 0 auto;
+      width: 80%
+    }
+
+    h1 {
+      display: inline-block;
+      margin-right: 20px;
+      color: rgb(190, 190, 190);
+      font-size: 3.5em;
+      font-weight: 700;
+    }
+
+    h2 {
+      display: inline-block;
+      color: rgba(255, 200, 0, 0.8);
+      letter-spacing: 0.05em;
+      margin-top: 0px;
+      font-weight: 300;
+      text-transform: uppercase;
+      border-bottom: 1px dotted rgba(255, 200, 0, 0.5);
+      ;
+    }
+
+    #map {
+      width: 80%;
+      height: 540px;
+      margin: 10px auto;
+    }
+
+    p {
+      font-size: 1em;
+      color: rgba(170, 170, 170);
+      ;
+      font-weight: 300;
+      font-size: 1.2em;
+    }
+
+    .leaflet-touch .leaflet-control-layers,
+    .leaflet-touch .leaflet-bar {
+      border: 0;
+      background-clip: padding-box;
+      background-color: transparent;
+    }
+
+    .leaflet-control-layers-expanded {
+      width: 200px;
+      color: white;
+    }
+
+
+    .store {
+      color: BurlyWood;
+    }
+
+    .station {
+      color: Coral;
+    }
+
+    .school {
+      color: CadetBlue;
+    }
+
+
+  .toolTipStore  {
+      color: BurlyWood;
+    }
+
+    .toolTipStation {
+      color: Coral;
+    }
+
+    .toolTipSchool {
+      color: CadetBlue;
+
+    }
+
+ /*    popUpText = `<div class="toolTipStation"><p>Fire Station</p> <p class="tip">Station Number : ${feature.properties.STATION_NU}</p></div>` */
+
+    .leaflet-tooltip p {
+      padding: 0, 5px;
+      margin: 0 2px;
+      font-weight: 400;
+      font-size: 1.2em;
+      color: #000;
+    }
+
+
+    /* Tooltip */
+    /* Base styles for the element that has a tooltip */
+    .leaflet-tooltip {
+      position: absolute;
+      padding: 5 px;
+      background-color: #fff;
+      border: 1px solid #fff;
+      border-radius: 3px;
+      color: #222;
+      white-space: nowrap;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      pointer-events: none;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .leaflet-tooltip.leaflet-clickable {
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    .leaflet-tooltip-top:before,
+    .leaflet-tooltip-bottom:before,
+    .leaflet-tooltip-left:before,
+    .leaflet-tooltip-right:before {
+      position: absolute;
+      pointer-events: none;
+      border: 6px solid transparent;
+      background: transparent;
+      content: "";
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Denver, Colorado</h1>
+    <h2>fire stations, food stores, and after school programs</h2>
+  </header>
+
+  <div id='map'></div>
+
+  <footer>
+    <p>Map authored by Aimee Armour-Avant</p>
+    <p>This is an interactive web of Denver, Colorado illustrating amenities including fire stations, food stores, and
+      after school programs. You can click on the map to see which of these amenities fall within a 1 km range of the
+      clicked location. The map also allows you to toggle on and off amenity layers as well as click indivudal amenities
+      and retrieve specific information about that amenity. Data from the Denver Open Data Catalog.</p>
+  </footer>
+  <!-- Is the is the latest version of Leaflet? -->
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+
+  <script>
+    var map = L.map('map', {
+      center: [39.7256, -104.9252],
+      zoom: 11,
+    });
+
+    var tiles = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/dark_all/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+      subdomains: 'abcd',
+      maxZoom: 19,
+      minZoom: 11,
+    }).addTo(map);
+  </script>
+
+  <!-- // BEGIN WRITING YOUR SOLUTION CODE HERE -->
+
+  <!-- // Load Fire Station Data as JavaScript variable stations -->
+  <script src="data/denver-fire-stations.js"></script>
+
+  <!-- // Load Store Data as JavaScript variable stores -->
+  <script src="data/denver-food-stores.js"></script>
+
+  <!-- // Load After School Programs Data as JavaScript variable programs -->
+  <script src="data/after-school-programs.js"></script>
+
+  <!-- // Load Denver Boundary -->
+  <script src="data/denver.js"></script>
+
+  <script>
+    // layers data to load
+    var layersToLoad = {
+      storeLayer: {
+        source: stores, // no quotes so get variable
+        color: "BurlyWood",
+        fillColor: "BurlyWood",
+        radius: 4, // change from 10 because 10 was too large
+        fillOpacity: 1,
+        description: "STORE_NAME"
+      },
+      schoolLayer: {
+        source: programs,
+        color: "CadetBlue",
+        fillColor: "CadetBlue",
+        radius: 4,
+        fillOpacity: 1,
+        description: "ORGANIZATI"
+      },
+      fireLayer: {
+        source: stations,
+        color: "Coral",
+        fillColor: "Coral",
+        radius: 4,
+        fillOpacity: 1,
+        description: "STATION_NU"
+      }
+    }
+
+    // experiment adding Denver boundary
+    /*     L.geoJson(denverCounty, {
+          style: function (feature) {
+              return {
+                color: 'grey',
+                weight: 1,
+                stroke: 1,
+                fillOpacity: 0,
+      
+              }
+            }
+          }).addTo(map);
+     */
+    // console.log(programs.features[0].geometry.coordinates) is a feature
+    // console.log(programs.features) is an array of all the features
+
+    // create map layers
+    var geoJsonLayers = {};
+    for (var object in layersToLoad) {
+      // console.log(layersToLoad[object].source)
+      geoJsonLayers[object] = L.geoJson(layersToLoad[object].source, {
+        pointToLayer: function (feature, latlng) {
+          return L.circleMarker(latlng);
+        },
+        style: function (feature) {
+          return {
+            color: layersToLoad[object].color,
+            fillColor: layersToLoad[object].fillColor,
+            weight: 1,
+            stroke: 1,
+            fillOpacity: layersToLoad[object].fillOpacity,
+            radius: layersToLoad[object].radius
+          }
+        },
+        onEachFeature: function (feature, layer) {
+          //console.log(layersToLoad[object].source)
+          if (layersToLoad[object].description == "STATION_NU") {
+            popUpText = `<div class="toolTipStation">
+              Fire Station
+              <p class="tip">Station Number: ${feature.properties.STATION_NU}</p>
+              </div>`
+          } else if (layersToLoad[object].description == "ORGANIZATI") {
+            popUpText = `<div class="toolTipSchool">
+              After School Program
+              <p class="tip">${feature.properties.ORGANIZATI}</p>
+              </div>`
+          } else if (layersToLoad[object].description == "STORE_NAME") {
+            popUpText = `<div class="toolTipStore">
+              Food Store
+              <p class="tip">${feature.properties.STORE_NAME}</p>
+              </div>`
+          } else {
+            popUpText = `not working`
+          }
+          layer.bindTooltip(popUpText);
+        } // end on each feature
+      }).addTo(map);
+    } //end of for loop
+
+    // station number is STATION_NU
+    // name of food store is STORE_NAME
+    // name of school program ORGANIZATI
+
+    // add scale bar
+    L.control.scale({ metric: true, position: 'topright', maxWidth: 200 }).addTo(map);
+
+    // click event
+    var measureGroup = new L.featureGroup();
+    map.on('click', function (e) {
+      measureGroup.clearLayers();
+      var radius = 1000;
+      var searchCircle = L.circle(e.latlng, {
+        radius: radius,
+        color: '#94d8ff',
+        opacity: .9,
+        fillOpacity: .3,
+        weight: .5,
+        interactive: false
+      }).addTo(measureGroup)
+      measureGroup.addTo(map);
+      measureGroup.bringToBack();
+
+      for (var gsLayer in geoJsonLayers) {
+        geoJsonLayers[gsLayer].eachLayer(function (layer) {
+          var distance = e.latlng.distanceTo(layer.getLatLng());
+          if (distance > radius) {
+            layer.setStyle({
+              stroke: false,
+              fillOpacity: 0.1
+            }).addTo(map);
+          } else {
+            layer.setStyle({
+              stroke: true,
+              fillOpacity: 1
+            });
+          }
+        });
+      }
+
+
+    }); // end map on click
+
+    // map layer controls
+    var overlayMaps = {
+      "<span class='school'>After School Programs</span>": geoJsonLayers.schoolLayer,
+      "<span class='station'>Fire Stations</span>": geoJsonLayers.fireLayer,
+      "<span class='store'>Food Stores</span>": geoJsonLayers.storeLayer
+    }
+    L.control.layers(null, overlayMaps, { collapsed: false }).addTo(map);
+
+
+  </script>
+
+</body>
+
+</html>

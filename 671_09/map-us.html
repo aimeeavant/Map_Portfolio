@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Named Pillars of the United States</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
+  
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+  </style>
+</head>
+<body>
+
+  <div id='map'></div>
+  <script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYWltZWVhdmFudCIsImEiOiJjajd2ZWp3NjQwNGx4MndudjVqbGd1ZG1xIn0.5j60jT7XVIkSKpw7Y9aJXA';
+  var map = new mapboxgl.Map({
+      container: 'map', // html element id
+      style: 'mapbox://styles/aimeeavant/ckbfmqi1p0piq1ipa3e1oq55t', // stylesheet location
+      center: [-98.58334, 39.83333], // starting position [lng, lat] center of USA
+      zoom: 4 // starting zoom
+  });
+  </script>
+
+
+</body>
+</html>
