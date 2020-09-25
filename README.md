@@ -1,8 +1,5 @@
-Title: Aimee Armour-Avant, Map Portfolio
-CSS: style.css
-
 # Aimee Armour-Avant
-* * *
+
 ### Existing Wineries at American Viticultural Area Establishment
 Interactive Map: <https://aimeeavant.github.io/Map_Portfolio/672_010/>
 
@@ -28,7 +25,7 @@ Interactive Map: <https://aimeeavant.github.io/Map_Portfolio/672_07>
 ![Static Regional Map](https://i2.wp.com/winehistoryproject.org/wp-content/uploads/2020/06/geneseo-3-lr.jpg?w=1000&ssl=1)
 
 - - -
-### 671 Classwork
+### MAP 671 – Introduction to New Mapping Classwork
 
 Lab 03 : [Major Waterways of California](https://aimeeavant.github.io/Map_Portfolio/671_03/index.html "Lab 03 : Major Waterways of California")
 
@@ -45,7 +42,7 @@ Lab 09 : [Chimney Rock Pilar](https://aimeeavant.github.io/Map_Portfolio/671_09/
 Lab 10 : [Boundaries of American Viticultural Areas](https://aimeeavant.github.io/Map_Portfolio/671_010/index.html "Lab 10 : Boundaries of American Viticultural Areas")
 
 - - -
-### 672 Classwork
+### MAP 672 – Programming for Web Mapping Classwork
 
 Lab 01 : [Edinburgh, Scotland](https://aimeeavant.github.io/Map_Portfolio/672_01/index.html "Lab 01 : Edinburgh, Scotland")
 
