@@ -1,6 +1,6 @@
 # Aimee Armour-Avant
 
-### Existing Wineries at American Viticultural Area Establishment
+### Existing Wineries at Time of American Viticultural Area Establishment
 Interactive Map: <https://aimeeavant.github.io/Map_Portfolio/672_010/>
 
 ![Existing Wineries at American Viticultural Area Establishment](https://aimeeavant.github.io/Map_Portfolio/672_010/AVAmapScreenShot.png)
